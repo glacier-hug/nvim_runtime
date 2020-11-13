@@ -98,15 +98,11 @@ map <Leader><leader>h <Plug>(easymotion-linebackward)
 let g:ale_linters = {
 \   'javascript': ['jshint'],
 \   'python': ['pylint'],
-\   'go': ['go', 'golint', 'errcheck'],
-\   'cpp': ['cpplint'],
 \}
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black', 'isort', 'add_blank_lines_for_python_control_statements'],
-\   'go' : ['gofmt', 'goimports'],
-\   'cpp': ['clang-format'],
 \   'vue': ['prettier'],
 \   'javascript': ['prettier'],
 \}

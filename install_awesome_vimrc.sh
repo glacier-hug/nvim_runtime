@@ -18,5 +18,5 @@ cat ~/.nvim_runtime/pip_requirements.txt | xargs pip3 install
 cat ~/.nvim_runtime/requirements.txt | xargs brew install
 cat ~/.nvim_runtime/npm_requirements.txt | xargs npm -D install
 
-echo 'alias vim=nvim' > ~/.bash_profile
+echo 'alias vim=nvim' >> ~/.bashrc
 echo "Installed the Ultimate Vim configuration successfully! Enjoy :-)"
