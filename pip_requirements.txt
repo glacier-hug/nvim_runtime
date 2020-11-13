@@ -1,0 +1,5 @@
+pylint
+jedi
+pylint_venv
+black
+pynvim
