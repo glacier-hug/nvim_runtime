@@ -18,5 +18,8 @@ cat ~/.nvim_runtime/pip_requirements.txt | xargs pip3 install
 cat ~/.nvim_runtime/requirements.txt | xargs brew install
 cat ~/.nvim_runtime/npm_requirements.txt | xargs npm -D install
 
+brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font
+
 echo 'alias vim=nvim' >> ~/.bashrc
 echo "Installed the Ultimate Vim configuration successfully! Enjoy :-)"

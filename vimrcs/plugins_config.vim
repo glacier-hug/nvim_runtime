@@ -26,32 +26,7 @@ function! LinterStatus() abort
 endfunction
 set statusline=%{LinterStatus()}
 
-" => Nerd Tree
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 30
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pycq,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
-" => nerdtree-git-plugin
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
 
 " => bufExplorer plugin
 let g:bufExplorerDefaultHelp=0
@@ -94,22 +69,6 @@ map <Leader><leader>h <Plug>(easymotion-linebackward)
 """"""""""""""""""""""""""""""
 " => Program utilities
 """"""""""""""""""""""""""""""
-" => Ale
-let g:ale_linters = {
-\   'javascript': ['jshint'],
-\   'python': ['pylint'],
-\}
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black', 'isort', 'add_blank_lines_for_python_control_statements'],
-\   'vue': ['prettier'],
-\   'javascript': ['prettier'],
-\}
-
-nmap <silent> ]a <Plug>(ale_next_wrap)
-nmap <silent> [a <Plug>(ale_previous_wrap)
-nmap <F8> <Plug>(ale_fix)
 
 " Disabling highlighting
 let g:ale_set_highlights = 0
@@ -123,6 +82,8 @@ let g:ale_set_highlights = 0
 """"""""""""""""""""""""""""""
 
 " => Coc.nvim
+
+let g:coc_global_extensions = ['coc-explorer', 'coc-git', 'coc-lists', 'coc-pairs', 'coc-yank', 'coc-highlight', 'coc-snippets', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-vetur', 'coc-eslint']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -265,3 +226,6 @@ vmap <C-j> <Plug>(coc-snippets-select)
 let g:coe_snippet_next = '<c-n>'
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-p>'
+
+nnoremap <F8> :Format<cr>
+nmap <silent><F2> :CocCommand explorer<CR>

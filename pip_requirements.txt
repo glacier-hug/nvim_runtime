@@ -3,3 +3,5 @@ jedi
 pylint_venv
 black
 pynvim
+vim-vint
+shellcheck-py

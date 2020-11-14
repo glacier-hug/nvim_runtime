@@ -1,2 +1,3 @@
 eslint
 eslint-plugin-vue
+markdownlint

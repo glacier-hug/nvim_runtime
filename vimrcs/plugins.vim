@@ -2,7 +2,7 @@ let s:vim_runtime = expand('<sfile>:p:h')."/.."
 call plug#begin(s:vim_runtime.'/bundles/')
 
 " program language
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-git coc-lists coc-pairs coc-yank coc-highlight coc-snippets coc-json coc-html coc-tsserver coc-css coc-python coc-vetur coc-eslint'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 " markdown
@@ -12,16 +12,11 @@ Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Git Plugins
-Plug 'tpope/vim-rhubarb'
-
 " Appearance
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
@@ -41,7 +36,6 @@ Plug 'kana/vim-textobj-function'
 Plug 'godlygeek/tabular'
 
 " Program utilities
-Plug 'dense-analysis/ale'
 Plug 'tpope/vim-commentary'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-repeat'
