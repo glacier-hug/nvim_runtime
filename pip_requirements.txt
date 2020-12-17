@@ -1,7 +1,6 @@
 pylint
 jedi
 pylint_venv
-black
+yapf
 pynvim
-vim-vint
-shellcheck-py
+ag

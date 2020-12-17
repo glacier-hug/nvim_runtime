@@ -17,7 +17,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'junegunn/goyo.vim'
@@ -40,10 +39,12 @@ Plug 'tpope/vim-commentary'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-repeat'
 Plug 'yggdroot/indentline', { 'for': 'python' }
-Plug 'psf/black', { 'for': 'python' }
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'shougo/vimshell.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'dbgx/lldb.nvim'
+Plug 'dense-analysis/ale'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'edkolev/tmuxline.vim'
 
 call plug#end()

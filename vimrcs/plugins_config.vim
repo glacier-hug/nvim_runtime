@@ -27,14 +27,6 @@ endfunction
 set statusline=%{LinterStatus()}
 
 
-
-" => bufExplorer plugin
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
-let g:bufExplorerFindActive=1
-let g:bufExplorerSortBy='name'
-map <leader>o :BufExplorer<cr>
-
 " => tagbar
 nmap <F4> :TagbarToggle<CR>　
 
@@ -83,7 +75,7 @@ let g:ale_set_highlights = 0
 
 " => Coc.nvim
 
-let g:coc_global_extensions = ['coc-explorer', 'coc-git', 'coc-lists', 'coc-pairs', 'coc-yank', 'coc-highlight', 'coc-snippets', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-vetur', 'coc-eslint']
+let g:coc_global_extensions = ['coc-explorer', 'coc-git', 'coc-lists', 'coc-pairs', 'coc-yank', 'coc-highlight', 'coc-snippets', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-eslint',  'coc-prettier']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -216,6 +208,7 @@ xmap ah <Plug>(coc-git-chunk-outer)
 
 set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
 nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " => coc-snippets
 " Use <C-j> for trigger snippet expand.
@@ -229,3 +222,11 @@ let g:coc_snippet_prev = '<c-p>'
 
 nnoremap <F8> :Format<cr>
 nmap <silent><F2> :CocCommand explorer<CR>
+
+let g:ale_linters = {
+\   'javascript': ['jshint'],
+\   'python': ['pylint'],
+\   'vue': ['eslint']
+\}
+
+let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'vue': 'vue-formatter'}
