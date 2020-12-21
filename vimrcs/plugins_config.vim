@@ -75,7 +75,22 @@ let g:ale_set_highlights = 0
 
 " => Coc.nvim
 
-let g:coc_global_extensions = ['coc-explorer', 'coc-git', 'coc-lists', 'coc-pairs', 'coc-yank', 'coc-highlight', 'coc-snippets', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-eslint',  'coc-prettier']
+let g:coc_global_extensions = [
+            \'coc-explorer', 
+            \'coc-git', 
+            \'coc-lists', 
+            \'coc-pairs', 
+            \'coc-yank', 
+            \'coc-highlight', 
+            \'coc-snippets', 
+            \'coc-json', 
+            \'coc-html',
+            \'coc-tsserver',
+            \'coc-css',
+            \'coc-python',
+            \'coc-eslint',
+            \'coc-prettier',
+            \'coc-vetur']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -122,6 +137,10 @@ nmap <leader>ju <Plug>(coc-references)
 nmap <leader>jr <Plug>(coc-rename)
 nmap <leader>jf  <Plug>(coc-fix-current)
 
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -133,6 +152,30 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -187,6 +230,10 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" Maps
+nnoremap <silent><nowait> <space>m  :<C-u>CocList maps<CR>
+
+nnoremap <silent><nowait> <leader>g  :LazyGit<CR>
 
 " => coc-git
 nmap [h <Plug>(coc-git-prevchunk)
@@ -198,7 +245,6 @@ nnoremap <leader>hs :CocCommand git.chunkStage<cr>
 nnoremap <leader>hu :CocCommand git.chunkUndo<cr>
 nnoremap <leader>hd :CocCommand git.diffCached<cr>
 nnoremap <leader>hc :CocCommand git.showCommit<cr>
-noremap <silent> <leader>d :CocCommand git.toggleGutters<cr>
 
 " create text object for git chunks
 omap ih <Plug>(coc-git-chunk-inner)
@@ -230,3 +276,5 @@ let g:ale_linters = {
 \}
 
 let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'vue': 'vue-formatter'}
+
+noremap <silent> <leader>d :CocCommand git.toggleGutters<cr>

@@ -21,6 +21,8 @@ Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'junegunn/goyo.vim'
 Plug 'kshenoy/vim-signature'
+Plug 'ryanoasis/vim-devicons'
+Plug 'posva/vim-vue'
 
 " Quick Move and Select
 Plug 'tpope/vim-surround'
@@ -33,6 +35,9 @@ Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python', { 'for': 'python' }
 Plug 'kana/vim-textobj-function'
 Plug 'godlygeek/tabular'
+Plug 'brooth/far.vim'
+Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
+
 
 " Program utilities
 Plug 'tpope/vim-commentary'
@@ -46,5 +51,6 @@ Plug 'dbgx/lldb.nvim'
 Plug 'dense-analysis/ale'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
+
 
 call plug#end()
