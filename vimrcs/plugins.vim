@@ -11,6 +11,7 @@ Plug 'plasticboy/vim-markdown'
 " Search Plugin
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
 " Appearance
 Plug 'altercation/vim-colors-solarized'

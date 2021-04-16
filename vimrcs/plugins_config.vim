@@ -2,7 +2,6 @@
 """"""""""""""""""""""""""""""
 " => Appearance
 """"""""""""""""""""""""""""""
-
 " => vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -83,6 +82,7 @@ let g:coc_global_extensions = [
             \'coc-yank', 
             \'coc-highlight', 
             \'coc-snippets', 
+            \'coc-go',
             \'coc-json', 
             \'coc-html',
             \'coc-tsserver',
@@ -209,29 +209,29 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 "" Show all CoCList
-nnoremap <silent><nowait> <space><space> :<C-u>CocList<cr>
+nnoremap <silent><nowait> <space><space> :<C-u>CocFzfList<cr>
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>a  :<C-u>CocFzfList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <space>e  :<C-u>CocFzfList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>c  :<C-u>CocFzfList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocFzfList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList snippets<cr>
+nnoremap <silent><nowait> <space>s  :<C-u>CocFzfList snippets<cr>
 " Yank
-nnoremap <silent><nowait> <space>y  :<C-u>CocList yank<cr>
+nnoremap <silent><nowait> <space>y  :<C-u>CocFzfList yank<cr>
 " File
-nnoremap <silent><nowait> <space>f  :<C-u>CocList files<cr>
+nnoremap <silent><nowait> <space>f  :<C-u>CocFzfList files<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <space>p  :<C-u>CocFzfListResume<CR>
 " Maps
-nnoremap <silent><nowait> <space>m  :<C-u>CocList maps<CR>
+nnoremap <silent><nowait> <space>m  :<C-u>CocFzfList maps<CR>
 
 nnoremap <silent><nowait> <leader>g  :LazyGit<CR>
 
@@ -253,7 +253,7 @@ omap ah <Plug>(coc-git-chunk-outer)
 xmap ah <Plug>(coc-git-chunk-outer)
 
 set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
-nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
+nnoremap <silent> <space>g  :<C-u>CocFzfList --normal gstatus<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " => coc-snippets
